@@ -1,4 +1,4 @@
-#Hangman, BEATEN!
+<h2>Hangman, BEATEN !!</h2>
 
 For a more raw experience, use the "main" program. Do not edit the "words" and "masterletters" text files as they contain all the words and suggestions. For the complete and dusted experience, use mainSimple. You can make your own program with the functions in the "userTestProg.py" program.
 
