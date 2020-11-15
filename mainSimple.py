@@ -1,8 +1,8 @@
 from MakerMod.text import *
 
 def wordsIn():
-    file=open("words.txt",mode='r')
-    fileR=file.read()
+    with open("words.txt",mode='r') as file:
+        fileR=file.read()
     return textFind(fileR,"\n")
 
 l=wordsIn()
@@ -24,11 +24,11 @@ l=b
 print(len(l))
 
 #Character elimination function
-def charCtrl(pos,charUp,charDown,lm=l,outPrint=True):
+def charCtrl(pos,char,lm=l,outPrint=True):
     c=[]
     array=l
     for i in array:
-        if i[pos-1]==charUp or i[pos-1]==charDown:
+        if i[pos-1]==char.upper() or i[pos-1]==char.lower():
             c.append(i)
         else:
             pass
@@ -38,11 +38,11 @@ def charCtrl(pos,charUp,charDown,lm=l,outPrint=True):
         pass
     return(c)
 
-def charRem(charUp,charDown,lm=l,outPrint=True):
+def charRem(char,lm=l,outPrint=True):
     d=[]
     array=l
     for i in array:
-        if not (charUp in i or charDown in i):
+        if not (char.upper() in i or char.lower() in i):
             d.append(i)
         else:
             pass
@@ -55,9 +55,9 @@ def charRem(charUp,charDown,lm=l,outPrint=True):
 while True:
     denyAccept = input("Deny character (dc), accept character (ac), stuck (s), show (sh) or done(d)? ")
     if denyAccept == "dc":
-        l=charRem(input("Capital: "),input("Small: "))
+        l=charRem(input("Letter: "))
     elif denyAccept == "ac":
-        l=charCtrl(int(input("Position: ")),input("Capital: "),input("Small: "))
+        l=charCtrl(int(input("Position: ")),input("Letter: "))
     elif denyAccept == "s":
         print(mList)
         print("")
