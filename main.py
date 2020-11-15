@@ -22,22 +22,22 @@ l=b
 print(l)
 
 #Character elimination function
-def charCtrl(pos,charUp,charDown):
+def charCtrl(pos,char):
     c=[]
     array=l
     for i in array:
-        if i[pos-1]==charUp or i[pos-1]==charDown:
+        if i[pos-1]==char.upper() or i[pos-1]==char.lower():
             c.append(i)
         else:
             pass
     print(c)
     return(c)
 
-def charRem(charUp,charDown):
+def charRem(char):
     d=[]
     array=l
     for i in array:
-        if not (charUp in i or charDown in i):
+        if not (char.upper() in i or char.lower() in i):
             d.append(i)
         else:
             pass
@@ -47,9 +47,9 @@ def charRem(charUp,charDown):
 while True:
     denyAccept = input("Deny character (dc), accept character (ac), stuck (s) or done(d)? ")
     if denyAccept == "dc":
-        l=charRem(input("Capital: "),input("Small: "))
+        l=charRem(input("Letter: "))
     elif denyAccept == "ac":
-        l=charCtrl(int(input("Position: ")),input("Capital: "),input("Small: "))
+        l=charCtrl(int(input("Position: ")),input("Letter: "))
     elif denyAccept == "s":
         print(mList)
     elif denyAccept == "d":
